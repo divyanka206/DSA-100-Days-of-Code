@@ -21,8 +21,46 @@
 //
 // Explanation: Compared with 10, 20, 30 (found at index 2 with 3 comparisons)
 
+
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("enter number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n];  //defining an array
+    printf("enter %d elements: ", n);
+    for(int i = 0; i < n; i++){
+        scanf("%d", &arr[i]);
+    }
+
+    int key;  //taking input for the element to be searched
+    printf("enter the element to search: ");
+    scanf("%d", &key);
+
+    int found = 0; //flag
+    int count = 0; //counts the comparisions
+    for(int i = 0; i < n; i++){
+        if(arr[i] == key){    //condition check
+            printf("Found %d at index %d\n", key, i);
+            found = 1;
+            count += 1;
+            break;    // loop wont run after key is found
+        }
+    }
+
+    printf("Comparisions = %d\n", count);
+
+    if (!found){
+        printf("%d not found\n", key);
+    }
+
+    return 0;
+}
+
 /*
-You are given an array arr[] of size n - 1 that contains distinct integers in the range from 1 to n (inclusive). This array represents a permutation of the integers from 1 to n with one element missing. Your task is to identify and return the missing element.
+You are given an array arr[] of size n - 1 that contains distinct integers in the range from 1 to n (inclusive). This array represents a permutation of the integers from 1 to n with one element missing. Your task is to identify and return the missing element. {GeeksforGeeks}
 */
 
 int missingNum(int *arr, int size) {
